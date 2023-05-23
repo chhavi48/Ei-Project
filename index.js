@@ -1,14 +1,14 @@
 let clickedSections = [];
-let correctAnswer = []; // Correct pattern will be generated dynamically
+let correctAnswer = [];
 
 // Get the sections in the first and second rows
 const row1Sections = document.querySelectorAll('#row1 .section');
 const row2Sections = document.querySelectorAll('#row2 .section');
 
-// Assign random background color to two sections in the first row
+
 assignRandomColors();
 
-// Add click event listener to sections in the second row
+
 row2Sections.forEach((section, index) => {
   section.addEventListener('click', () => toggleSection(section, index + 1));
 });
@@ -64,7 +64,7 @@ function refreshExercise() {
 }
 
 function assignRandomColors() {
-  // Reset the background color of all sections in the first row
+
   row1Sections.forEach((section) => {
     section.style.backgroundColor = '';
   });
@@ -72,7 +72,7 @@ function assignRandomColors() {
   // Select random sections in the first row
   const randomSections = getRandomSections(2);
 
-  // Generate the correct answer based on the colored sections in the first row
+
   correctAnswer = randomSections.map((section) => Array.from(row1Sections).indexOf(section) + 1);
 
   // Assign the same random background color to the selected sections
@@ -106,6 +106,6 @@ function generateRandomColor() {
   return color;
 }
 
-// Attach event listeners to the submit and refresh buttons
+
 document.getElementById('submit').addEventListener('click', submitAnswer);
 document.getElementById('refresh').addEventListener('click', refreshExercise);
